@@ -8,7 +8,8 @@ uses
   uModulo in '..\Unit\uModulo.pas' {Modulo: TDataModule},
   uCabecalho in '..\Unit\uCabecalho.pas' {FrCabecalho},
   uMunicipios in '..\Unit\uMunicipios.pas' {FrMunicipios},
-  uChavesNFe in '..\Unit\uChavesNFe.pas' {FrChavesNFe};
+  uChavesNFe in '..\Unit\uChavesNFe.pas' {FrChavesNFe},
+  uVeiculoTracao in '..\Unit\uVeiculoTracao.pas' {FrVeiculoTracao};
 
 {$R *.res}
 
@@ -17,5 +18,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TModulo, Modulo);
   Application.CreateForm(TFrPrincipal, FrPrincipal);
+  Application.CreateForm(TFrVeiculoTracao, FrVeiculoTracao);
   Application.Run;
 end.
