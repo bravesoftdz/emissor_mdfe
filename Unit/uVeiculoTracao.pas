@@ -56,6 +56,7 @@ type
       DisplayText: Boolean);
     procedure btnCloseClick(Sender: TObject);
     procedure QueryBeforeDelete(DataSet: TDataSet);
+    procedure btnMotoristasClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,11 +70,21 @@ implementation
 
 {$R *.dfm}
 
-uses uModulo, uMain;
+uses uModulo, uMain, uMotorista;
 
 procedure TFrVeiculoTracao.btnCloseClick(Sender: TObject);
 begin
    Self.Close;
+end;
+
+procedure TFrVeiculoTracao.btnMotoristasClick(Sender: TObject);
+begin
+   FrMotoristas := TFrMotoristas.Create(self);
+   try
+      FrMotoristas.ShowModal;
+   finally
+      FreeAndNil(FrMotoristas);
+   end;
 end;
 
 procedure TFrVeiculoTracao.dsQueryStateChange(Sender: TObject);

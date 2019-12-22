@@ -351,6 +351,7 @@ object FrVeiculoTracao: TFrVeiculoTracao
       Align = alRight
       Caption = 'Motoristas'
       TabOrder = 2
+      OnClick = btnMotoristasClick
       ExplicitLeft = 380
     end
   end
