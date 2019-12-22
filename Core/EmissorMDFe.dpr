@@ -18,6 +18,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TModulo, Modulo);
   Application.CreateForm(TFrPrincipal, FrPrincipal);
-  Application.CreateForm(TFrVeiculoTracao, FrVeiculoTracao);
   Application.Run;
 end.

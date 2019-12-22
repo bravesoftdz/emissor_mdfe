@@ -399,6 +399,10 @@ object FrPrincipal: TFrPrincipal
           ShortCut = 16452
           OnClick = AlterarDocumentos1Click
         end
+        object DadosdoVeculo1: TMenuItem
+          Caption = 'Dados do Ve'#237'culo'
+          OnClick = DadosdoVeculo1Click
+        end
       end
       object Excluir1: TMenuItem
         Caption = '-'
