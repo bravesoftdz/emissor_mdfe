@@ -128,6 +128,13 @@ object FrCabecalho: TFrCabecalho
     Height = 13
     Caption = 'Tipo Modal'
   end
+  object Label7: TLabel
+    Left = 506
+    Top = 145
+    Width = 42
+    Height = 13
+    Caption = 'Percurso'
+  end
   object txtModelo: TRzDBEdit
     Left = 6
     Top = 25
@@ -317,7 +324,7 @@ object FrCabecalho: TFrCabecalho
   object RzDBMemo1: TRzDBMemo
     Left = 6
     Top = 188
-    Width = 566
+    Width = 495
     Height = 129
     DataField = 'MD_INF_COMPLEMENTARES'
     DataSource = dsQuery
@@ -326,7 +333,7 @@ object FrCabecalho: TFrCabecalho
   object RzDBMemo2: TRzDBMemo
     Left = 6
     Top = 342
-    Width = 566
+    Width = 495
     Height = 95
     DataField = 'MD_INF_FISCO'
     DataSource = dsQuery
@@ -421,6 +428,50 @@ object FrCabecalho: TFrCabecalho
     DataField = 'MD_QTD_CARGA'
     DataSource = dsQuery
   end
+  object JvDBGrid1: TJvDBGrid
+    Left = 506
+    Top = 188
+    Width = 66
+    Height = 249
+    DataSource = dsQueryPerc
+    TabOrder = 18
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    ScrollBars = ssNone
+    AutoSizeColumns = True
+    SelectColumnsDialogStrings.Caption = 'Select columns'
+    SelectColumnsDialogStrings.OK = '&OK'
+    SelectColumnsDialogStrings.NoSelectionWarning = 'At least one column must be visible!'
+    EditControls = <>
+    RowsHeight = 17
+    TitleRowHeight = 17
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'MD_PERCURSO'
+        Title.Caption = 'UF'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'Tahoma'
+        Title.Font.Style = [fsBold]
+        Width = 49
+        Visible = True
+      end>
+  end
+  object JvDBNavigator1: TJvDBNavigator
+    Left = 506
+    Top = 161
+    Width = 66
+    Height = 25
+    DataSource = dsQueryPerc
+    VisibleButtons = [nbInsert, nbDelete]
+    ConfirmDelete = False
+    TabOrder = 19
+  end
   object dsQuery: TDataSource
     DataSet = FrPrincipal.Query
     Left = 390
@@ -428,7 +479,52 @@ object FrCabecalho: TFrCabecalho
   end
   object ApplicationEvents1: TApplicationEvents
     OnException = ApplicationEvents1Exception
-    Left = 488
-    Top = 124
+    Left = 424
+    Top = 136
+  end
+  object QueryPerc: TFDQuery
+    AfterInsert = QueryPercAfterInsert
+    BeforeDelete = QueryPercBeforeDelete
+    IndexFieldNames = 'ID_C000700'
+    MasterSource = FrPrincipal.dsQuery
+    MasterFields = 'ID'
+    DetailFields = 'ID_C000700'
+    Connection = Modulo.DBConexao
+    FetchOptions.AssignedValues = [evDetailCascade]
+    FetchOptions.DetailCascade = True
+    SQL.Strings = (
+      'SELECT * FROM C000702 WHERE ID_C000700 = :ID ORDER BY ID ')
+    Left = 480
+    Top = 96
+    ParamData = <
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object QueryPercID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QueryPercID_C000700: TIntegerField
+      FieldName = 'ID_C000700'
+      Origin = 'ID_C000700'
+    end
+    object QueryPercMD_PERCURSO: TStringField
+      FieldName = 'MD_PERCURSO'
+      Origin = 'MD_PERCURSO'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object dsQueryPerc: TDataSource
+    AutoEdit = False
+    DataSet = QueryPerc
+    Left = 512
+    Top = 96
   end
 end
