@@ -39,6 +39,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormShow(Sender: TObject);
     procedure dsQueryStateChange(Sender: TObject);
+    procedure RzDialogButtons1ClickOk(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,7 +53,7 @@ implementation
 
 {$R *.dfm}
 
-uses uModulo;
+uses uModulo, uVeiculoTracao;
 
 procedure TFrMotoristas.dsQueryStateChange(Sender: TObject);
 begin
@@ -99,6 +100,11 @@ begin
       txtNome.SetFocus;
       Abort;
    end;
+end;
+
+procedure TFrMotoristas.RzDialogButtons1ClickOk(Sender: TObject);
+begin
+   Self.Close;
 end;
 
 procedure TFrMotoristas.txtCpfExit(Sender: TObject);

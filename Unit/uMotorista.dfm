@@ -24,10 +24,8 @@ object FrMotoristas: TFrMotoristas
     HotTrack = True
     OKDefault = False
     ModalResultOk = 0
+    OnClickOk = RzDialogButtons1ClickOk
     TabOrder = 0
-    ExplicitLeft = 180
-    ExplicitTop = 124
-    ExplicitWidth = 185
     object JvDBNavigator1: TJvDBNavigator
       AlignWithMargins = True
       Left = 3
@@ -46,17 +44,12 @@ object FrMotoristas: TFrMotoristas
     Top = 3
     Width = 398
     Height = 202
-    ActivePage = tabDetalhes
+    ActivePage = tabVeiculos
     Align = alClient
     TabOrder = 1
     OnChanging = pgControlChanging
-    ExplicitLeft = -93
-    ExplicitWidth = 567
-    ExplicitHeight = 242
     object tabVeiculos: TTabSheet
       Caption = 'Ve'#237'culos'
-      ExplicitWidth = 559
-      ExplicitHeight = 214
       object JvDBGrid1: TJvDBGrid
         AlignWithMargins = True
         Left = 3
@@ -89,7 +82,7 @@ object FrMotoristas: TFrMotoristas
             Title.Font.Height = -11
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = [fsBold]
-            Width = 79
+            Width = 88
             Visible = True
           end
           item
@@ -101,7 +94,7 @@ object FrMotoristas: TFrMotoristas
             Title.Font.Height = -11
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = [fsBold]
-            Width = 287
+            Width = 278
             Visible = True
           end>
         Delphi2010OptionsMigrated = True
@@ -110,10 +103,6 @@ object FrMotoristas: TFrMotoristas
     object tabDetalhes: TTabSheet
       Caption = 'Detalhes'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 25
-      ExplicitWidth = 554
-      ExplicitHeight = 0
       object GroupBox4: TGroupBox
         AlignWithMargins = True
         Left = 3
@@ -123,8 +112,6 @@ object FrMotoristas: TFrMotoristas
         Align = alTop
         Caption = 'Dados do Motorista.'
         TabOrder = 0
-        ExplicitTop = 2
-        ExplicitWidth = 553
         object Label16: TLabel
           Left = 6
           Top = 16
@@ -166,6 +153,10 @@ object FrMotoristas: TFrMotoristas
   object Query: TFDQuery
     BeforePost = QueryBeforePost
     BeforeDelete = QueryBeforeDelete
+    IndexFieldNames = 'ID_C000703'
+    MasterSource = FrVeiculoTracao.dsQuery
+    MasterFields = 'ID'
+    DetailFields = 'ID_C000703'
     Connection = Modulo.DBConexao
     FetchOptions.AssignedValues = [evDetailCascade]
     FetchOptions.DetailCascade = True
@@ -212,6 +203,7 @@ object FrMotoristas: TFrMotoristas
   end
   object ChecDoc: TACBrValidador
     IgnorarChar = './-'
+    PermiteVazio = True
     Left = 83
     Top = 107
   end
