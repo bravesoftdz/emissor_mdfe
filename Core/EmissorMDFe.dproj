@@ -130,6 +130,8 @@
             <Form>FrChavesNFe</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Unit\uVeiculoTracao.pas">
+            <Form>FrVeiculoTracao</Form>
         <DCCReference Include="..\Unit\uPercurso.pas">
             <Form>FrPercurso</Form>
             <FormType>dfm</FormType>

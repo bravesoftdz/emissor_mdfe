@@ -76,6 +76,7 @@ type
     QueryMD_TIP_EMITENTE: TIntegerField;
     QueryMD_COD_MUNICIPIO: TStringField;
     QueryMD_NOM_MUNICIPIO: TStringField;
+    DadosdoVeculo1: TMenuItem;
     RzPanel1: TRzPanel;
     Button2: TButton;
     Button3: TButton;
@@ -94,6 +95,7 @@ type
     procedure AlterarDocumentos1Click(Sender: TObject);
     procedure Novo1Click(Sender: TObject);
     procedure AlterarCabealho1Click(Sender: TObject);
+    procedure DadosdoVeculo1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -107,7 +109,8 @@ implementation
 
 {$R *.dfm}
 
-uses uModulo, uCabecalho, uListaDoctos, uDoctos;
+uses uModulo, uCabecalho, uListaDoctos, uDoctos, uChavesNFe,
+  uVeiculoTracao;
 
 procedure TFrPrincipal.AlterarCabealho1Click(Sender: TObject);
 begin
@@ -131,6 +134,16 @@ begin
       FrDoctos.ShowModal;
    finally
       FreeAndNil(FrDoctos);
+   end;
+end;
+
+procedure TFrPrincipal.DadosdoVeculo1Click(Sender: TObject);
+begin
+   FrVeiculoTracao := TFrVeiculoTracao.Create(self);
+   try
+      FrVeiculoTracao.ShowModal;
+   finally
+      FreeAndNil(FrVeiculoTracao);
    end;
 end;
 
@@ -183,7 +196,7 @@ begin
    if (DisplayText) and not(Query.IsEmpty) then
    begin
       case Sender.AsInteger of
-         0 : Text := 'Em Digitação';
+         0 : Text := 'Em DigitaÃ§Ã£o';
          1 : Text := 'Enviada';
          2 : Text := 'Autorizada';
          3 : Text := 'Cancelada';

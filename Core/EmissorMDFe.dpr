@@ -9,6 +9,7 @@ uses
   uCabecalho in '..\Unit\uCabecalho.pas' {FrCabecalho},
   uMunicipios in '..\Unit\uMunicipios.pas' {FrMunicipios},
   uChavesNFe in '..\Unit\uChavesNFe.pas' {FrChavesNFe},
+  uVeiculoTracao in '..\Unit\uVeiculoTracao.pas' {FrVeiculoTracao};
   uPercurso in '..\Unit\uPercurso.pas' {FrPercurso};
 
 {$R *.res}
