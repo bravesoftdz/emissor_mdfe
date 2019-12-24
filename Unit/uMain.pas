@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, Vcl.StdCtrls, Vcl.Mask, RzEdit,
   RzDBEdit, JvExStdCtrls, JvCombobox, JvDBSearchComboBox,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, JvExMask, JvToolEdit,
-  Vcl.Menus;
+  Vcl.Menus, System.Actions, Vcl.ActnList;
 
 type
   TFrPrincipal = class(TForm)
@@ -76,6 +76,18 @@ type
     QueryMD_TIP_EMITENTE: TIntegerField;
     QueryMD_COD_MUNICIPIO: TStringField;
     QueryMD_NOM_MUNICIPIO: TStringField;
+    RzPanel1: TRzPanel;
+    Button2: TButton;
+    Button3: TButton;
+    ActionList1: TActionList;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    Button4: TButton;
+    Action5: TAction;
+    Button5: TButton;
+    Action4: TAction;
+    Button6: TButton;
     procedure FormShow(Sender: TObject);
     procedure QueryNewRecord(DataSet: TDataSet);
     procedure QueryMD_STATUSGetText(Sender: TField; var Text: string; DisplayText: Boolean);
