@@ -9,8 +9,8 @@ uses
   uCabecalho in '..\Unit\uCabecalho.pas' {FrCabecalho},
   uMunicipios in '..\Unit\uMunicipios.pas' {FrMunicipios},
   uChavesNFe in '..\Unit\uChavesNFe.pas' {FrChavesNFe},
-  uVeiculoTracao in '..\Unit\uVeiculoTracao.pas' {FrVeiculoTracao};
-  uPercurso in '..\Unit\uPercurso.pas' {FrPercurso};
+  uVeiculoTracao in '..\Unit\uVeiculoTracao.pas' {FrVeiculoTracao},
+  uMotorista in '..\Unit\uMotorista.pas' {FrMotoristas};
 
 {$R *.res}
 
