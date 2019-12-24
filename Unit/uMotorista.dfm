@@ -82,7 +82,7 @@ object FrMotoristas: TFrMotoristas
             Title.Font.Height = -11
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = [fsBold]
-            Width = 88
+            Width = 94
             Visible = True
           end
           item
@@ -94,7 +94,7 @@ object FrMotoristas: TFrMotoristas
             Title.Font.Height = -11
             Title.Font.Name = 'Tahoma'
             Title.Font.Style = [fsBold]
-            Width = 278
+            Width = 272
             Visible = True
           end>
         Delphi2010OptionsMigrated = True
