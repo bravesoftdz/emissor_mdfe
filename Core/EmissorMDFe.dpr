@@ -8,7 +8,8 @@ uses
   uModulo in '..\Unit\uModulo.pas' {Modulo: TDataModule},
   uCabecalho in '..\Unit\uCabecalho.pas' {FrCabecalho},
   uMunicipios in '..\Unit\uMunicipios.pas' {FrMunicipios},
-  uChavesNFe in '..\Unit\uChavesNFe.pas' {FrChavesNFe};
+  uChavesNFe in '..\Unit\uChavesNFe.pas' {FrChavesNFe},
+  uPercurso in '..\Unit\uPercurso.pas' {FrPercurso};
 
 {$R *.res}
 
