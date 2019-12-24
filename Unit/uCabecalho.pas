@@ -11,7 +11,8 @@ uses
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, RzDBBnEd, Vcl.ComCtrls, JvExComCtrls,
-  JvDateTimePicker, JvDBDateTimePicker, RzDTP, RzDBDTP, Vcl.AppEvnts;
+  JvDateTimePicker, JvDBDateTimePicker, RzDTP, RzDBDTP, Vcl.AppEvnts,
+  Vcl.Grids, Vcl.DBGrids, JvExDBGrids, JvDBGrid;
 
 type
   TFrCabecalho = class(TForm)
@@ -51,10 +52,20 @@ type
     txtDhSaida: TRzDBEdit;
     ApplicationEvents1: TApplicationEvents;
     cbPeso: TJvDBCalcEdit;
+    JvDBGrid1: TJvDBGrid;
+    JvDBNavigator1: TJvDBNavigator;
+    Label7: TLabel;
+    QueryPerc: TFDQuery;
+    dsQueryPerc: TDataSource;
+    QueryPercID: TIntegerField;
+    QueryPercID_C000700: TIntegerField;
+    QueryPercMD_PERCURSO: TStringField;
     procedure RzDialogButtons1ClickOk(Sender: TObject);
     procedure txtUfCarregamentoButtonClick(Sender: TObject);
     procedure ApplicationEvents1Exception(Sender: TObject; E: Exception);
     procedure FormShow(Sender: TObject);
+    procedure QueryPercAfterInsert(DataSet: TDataSet);
+    procedure QueryPercBeforeDelete(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -68,7 +79,7 @@ implementation
 
 {$R *.dfm}
 
-uses uModulo, uMain, uMunicipios;
+uses uModulo, uMain, uMunicipios, uPercurso;
 
 procedure TFrCabecalho.ApplicationEvents1Exception(Sender: TObject; E: Exception);
 begin
@@ -97,6 +108,28 @@ begin
    finally
       FreeAndNil(xQuery);
    end;
+
+   // Carrega os percusrsos
+   QueryPerc.Open();
+end;
+
+procedure TFrCabecalho.QueryPercAfterInsert(DataSet: TDataSet);
+begin
+   FrPercurso := TFrPercurso.Create(self);
+   try
+      if FrPercurso.ShowModal = mrOk then
+         QueryPerc.Post
+      else
+         QueryPerc.Cancel;
+   finally
+      FreeAndNil(FrPercurso);
+   end;
+end;
+
+procedure TFrCabecalho.QueryPercBeforeDelete(DataSet: TDataSet);
+begin
+   if Application.MessageBox('Tem certeza que deseja excluir esta UF?','TechCore-RTG',mb_IconQuestion or mb_YesNo) = mrNo then
+      Abort;
 end;
 
 procedure TFrCabecalho.RzDialogButtons1ClickOk(Sender: TObject);

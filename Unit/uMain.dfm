@@ -23,7 +23,7 @@ object FrPrincipal: TFrPrincipal
     Left = 3
     Top = 52
     Width = 939
-    Height = 375
+    Height = 334
     Align = alClient
     DataSource = dsQuery
     Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection]
@@ -149,6 +149,93 @@ object FrPrincipal: TFrPrincipal
       Height = 25
       Caption = 'Filtrar'
       TabOrder = 5
+    end
+  end
+  object RzPanel1: TRzPanel
+    Left = 0
+    Top = 389
+    Width = 945
+    Height = 41
+    Align = alBottom
+    BorderOuter = fsNone
+    TabOrder = 2
+    ExplicitLeft = 408
+    ExplicitTop = 104
+    ExplicitWidth = 185
+    object Button2: TButton
+      AlignWithMargins = True
+      Left = 847
+      Top = 6
+      Width = 95
+      Height = 29
+      Margins.Top = 6
+      Margins.Bottom = 6
+      Action = Action5
+      Align = alRight
+      TabOrder = 0
+      ExplicitLeft = 822
+      ExplicitTop = 5
+      ExplicitHeight = 31
+    end
+    object Button3: TButton
+      AlignWithMargins = True
+      Left = 3
+      Top = 6
+      Width = 95
+      Height = 29
+      Margins.Top = 6
+      Margins.Bottom = 6
+      Action = Action1
+      Align = alLeft
+      TabOrder = 1
+      ExplicitLeft = 721
+      ExplicitTop = 5
+      ExplicitHeight = 31
+    end
+    object Button4: TButton
+      AlignWithMargins = True
+      Left = 306
+      Top = 6
+      Width = 95
+      Height = 29
+      Margins.Top = 6
+      Margins.Bottom = 6
+      Action = Action4
+      Align = alLeft
+      TabOrder = 2
+      ExplicitLeft = 822
+      ExplicitTop = 5
+      ExplicitHeight = 31
+    end
+    object Button5: TButton
+      AlignWithMargins = True
+      Left = 104
+      Top = 6
+      Width = 95
+      Height = 29
+      Margins.Top = 6
+      Margins.Bottom = 6
+      Action = Action2
+      Align = alLeft
+      TabOrder = 3
+      ExplicitLeft = 822
+      ExplicitTop = 5
+      ExplicitHeight = 31
+    end
+    object Button6: TButton
+      AlignWithMargins = True
+      Left = 205
+      Top = 6
+      Width = 95
+      Height = 29
+      Margins.Top = 6
+      Margins.Bottom = 6
+      Action = Action3
+      Align = alLeft
+      TabOrder = 4
+      ExplicitLeft = 822
+      ExplicitTop = 5
+      ExplicitHeight = 31
     end
   end
   object Query: TFDQuery
@@ -418,6 +505,25 @@ object FrPrincipal: TFrPrincipal
         Caption = 'Sair'
         ShortCut = 16467
       end
+    end
+  end
+  object ActionList1: TActionList
+    Left = 536
+    Top = 120
+    object Action1: TAction
+      Caption = 'Enviar'
+    end
+    object Action2: TAction
+      Caption = 'Imprimir'
+    end
+    object Action3: TAction
+      Caption = 'Encerrar'
+    end
+    object Action5: TAction
+      Caption = 'Sair'
+    end
+    object Action4: TAction
+      Caption = 'Consultar'
     end
   end
 end

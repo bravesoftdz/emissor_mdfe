@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, Vcl.StdCtrls, Vcl.Mask, RzEdit,
   RzDBEdit, JvExStdCtrls, JvCombobox, JvDBSearchComboBox,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, JvExMask, JvToolEdit,
-  Vcl.Menus;
+  Vcl.Menus, System.Actions, Vcl.ActnList;
 
 type
   TFrPrincipal = class(TForm)
@@ -77,6 +77,18 @@ type
     QueryMD_COD_MUNICIPIO: TStringField;
     QueryMD_NOM_MUNICIPIO: TStringField;
     DadosdoVeculo1: TMenuItem;
+    RzPanel1: TRzPanel;
+    Button2: TButton;
+    Button3: TButton;
+    ActionList1: TActionList;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    Button4: TButton;
+    Action5: TAction;
+    Button5: TButton;
+    Action4: TAction;
+    Button6: TButton;
     procedure FormShow(Sender: TObject);
     procedure QueryNewRecord(DataSet: TDataSet);
     procedure QueryMD_STATUSGetText(Sender: TField; var Text: string; DisplayText: Boolean);
@@ -184,7 +196,7 @@ begin
    if (DisplayText) and not(Query.IsEmpty) then
    begin
       case Sender.AsInteger of
-         0 : Text := 'Em Digitação';
+         0 : Text := 'Em DigitaÃ§Ã£o';
          1 : Text := 'Enviada';
          2 : Text := 'Autorizada';
          3 : Text := 'Cancelada';
